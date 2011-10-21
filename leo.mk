@@ -86,7 +86,7 @@ PRODUCT_COPY_FILES += \
 
 #GSM APN LIST
 PRODUCT_COPY_FILES += \
-    vendor/cyanogen/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+    development/data/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 
 PRODUCT_COPY_FILES += \
