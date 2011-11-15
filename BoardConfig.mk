@@ -25,11 +25,11 @@
 # against the traditional rules of inheritance).
 USE_CAMERA_STUB := false
 
-# inherit from the proprietary version
--include vendor/htc/leo/BoardConfigVendor.mk
+# inherit from common msm7x30 device
+-include device/htc/msm7x30-common/BoardConfigCommon.mk
 
 # inherit from the proprietary version
--include device/htc/msm7x30-common/BoardConfigCommon.mk
+-include vendor/htc/leo/BoardConfigVendor.mk
 
 TARGET_BOARD_PLATFORM := qsd8k
 TARGET_BOOTLOADER_BOARD_NAME := htcleo
