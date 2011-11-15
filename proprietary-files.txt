@@ -8,7 +8,6 @@ etc/firmware/BCM4329B1_002.002.023.0436.0439.hcd
 etc/firmware/BCM4329B1_002.002.023.0436.0439.hcd
 etc/firmware/BCM4329B1_002.002.023.0511.0538.hcd
 etc/firmware/bcm4329.hcd
-etc/firmware/htcleo.acdb
 etc/firmware/default.acdb
 etc/firmware/yamato_pfp.fw
 etc/firmware/yamato_pm4.fw
@@ -25,6 +24,3 @@ lib/liboemcamera.so
 lib/libOmxVdec.so
 lib/libOmxVidEnc.so
 lib/libOmxCore.so
-lib/hw/gps.htcleo.so
-lib/hw/gps.leo.so
-lib/hw/sensors.bravo.so
