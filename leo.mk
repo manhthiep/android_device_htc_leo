@@ -25,6 +25,7 @@
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/init.htcleo.rc:root/init.htcleo.rc \
     device/htc/leo/prebuilt/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
+    device/htc/leo/prebuilt/init.rc:root/init.rc \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -86,7 +87,7 @@ PRODUCT_COPY_FILES += \
 
 #GSM APN LIST
 PRODUCT_COPY_FILES += \
-    vendor/cyanogen/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+    development/data/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # kernel modules
 PRODUCT_COPY_FILES += \
@@ -118,7 +119,7 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, device/htc/leo/media_a1026.mk)
 
 # stuff common to all HTC phones
-$(call inherit-product, device/htc/common/common.mk)
+#$(call inherit-product, device/htc/common/common.mk)
 
 PRODUCT_NAME := htc_leo
 PRODUCT_DEVICE := leo
