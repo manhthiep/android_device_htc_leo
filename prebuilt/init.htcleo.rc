@@ -221,11 +221,13 @@ on boot
  
 service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm \
      --baudrate 3000000 --patchram /etc/firmware/bcm4329.hcd /dev/ttyHS0
+    class main
     user bluetooth                
     group bluetooth net_bt_admin
     disabled
 
 #service btld /system/bin/logwrapper /system/bin/btld -lpm 1 -hb 3000000
+#    class main
 #    user root
 #    group bluetooth net_bt_admin
 #    disabled
@@ -233,11 +235,13 @@ service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm \
  
 # compass/accelerometer daemon
 service akmd /system/bin/akmd
+    class main
     user compass
     group compass misc input
  
 service wpa_supplicant /system/bin/wpa_supplicant \
     -Dwext -ieth0 -c/data/misc/wifi/wpa_supplicant.conf
+    class main
     #user wifi
     #group wifi inet
     socket wpa_eth0 dgram 660 wifi wifi
@@ -245,19 +249,23 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     oneshot
            
 service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
+    class main
     disabled
     oneshot
 
 service iprenew_eth0 /system/bin/dhcpcd -n
+    class main
     disabled
     oneshot
  
 # for USB internet sharing
 service udhcpd /system/bin/udhcpd
+    class main
     disabled
     oneshot
  
 # Execute files in /etc/init.d before booting
 service sysinit /system/bin/logwrapper /system/xbin/busybox run-parts /system/etc/init.d
+    class main
     disabled
     oneshot
