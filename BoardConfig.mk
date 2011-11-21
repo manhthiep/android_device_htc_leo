@@ -104,5 +104,3 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
 TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/leo/prebuilt/recovery_kernel
 -include device/htc/7x30-recovery/BoardConfigCommon.mk
 TARGET_PROVIDES_INIT_RC := true
-
-USE_OPENGL_RENDERER := false
