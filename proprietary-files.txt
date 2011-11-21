@@ -1,6 +1,5 @@
 bin/akmd
 bin/parse_radio_log
-bin/vold
 etc/AudioBTID.csv
 etc/AdieHWCodecSetting.csv
 etc/firmware/BCM4329B1_002.002.023.0360.0362.hcd
@@ -25,6 +24,3 @@ lib/liboemcamera.so
 lib/libOmxVdec.so
 lib/libOmxVidEnc.so
 lib/libOmxCore.so
-lib/hw/gps.htcleo.so
-lib/hw/gps.leo.so
-lib/hw/sensors.bravo.so
