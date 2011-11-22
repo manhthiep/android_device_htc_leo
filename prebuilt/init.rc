@@ -447,9 +447,9 @@ service bluetoothd /system/bin/bluetoothd -n
     group bluetooth net_bt_admin misc
     disabled
 
-#service installd /system/bin/installd
-#    class main
-#    socket installd stream 600 system system
+service installd /system/bin/installd
+    class main
+    socket installd stream 600 system system
 
 service flash_recovery /system/etc/install-recovery.sh
     class main
@@ -476,9 +476,3 @@ service keystore /system/bin/keystore /data/misc/keystore
     user keystore
     group keystore
     socket keystore stream 666
-
-service dumpstate /system/bin/dumpstate -s
-    class main
-    socket dumpstate stream 0660 shell log
-    disabled
-    oneshot

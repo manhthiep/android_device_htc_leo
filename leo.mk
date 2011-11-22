@@ -59,6 +59,7 @@ PRODUCT_PACKAGES += \
     sensors.htcleo \
     lights.htcleo \
     librs_jni \
+    libc \
     gralloc.qsd8k \
     copybit.qsd8k \
     leo-reference-ril \
