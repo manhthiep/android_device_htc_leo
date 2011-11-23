@@ -17,6 +17,9 @@ ro.ril.hsdpa.category=8
 ro.ril.hsupa.category=5
 ro.ril.hsxpa=2
 ro.ril.enable.prl.recognition=1
+ro.ril.enable.managed.roaming=1
+ro.ril.oem.nosim.ecclist=911,112,113,115,117,999,000,08,118,120,122,110,119,995
+ro.ril.emc.mode=2
 
 # Time between scans in seconds. Keep it high to minimize battery drain.
 # This only affects the case in which there are remembered access points,
@@ -27,6 +30,15 @@ wifi.supplicant_scan_interval=120
 # Default network type.
 # 0 => WCDMA preferred.
 ro.telephony.default_network=0
+
+# Turn on checkjni for non-user builds.
+ro.kernel.android.checkjni=1
+
+# Set device insecure for non-user builds.
+ro.secure=0
+
+# Allow mock locations by default for non user builds
+ro.allow.mock.location=1
 
 # density in DPI of the LCD of this board. This is used to scale the UI
 # appropriately. If this property is not defined, the default value is 240 dpi.

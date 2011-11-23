@@ -76,7 +76,7 @@ on boot
     chown media system /sys/android_camera/cam_mode
 
     # enable the GPS
-    setprop ro.ril.def.agps.mode 2
+    #setprop ro.ril.def.agps.mode 2
 
     # performance tweaks for flash
     write /sys/block/mtdblock3/bdi/read_ahead_kb 2048

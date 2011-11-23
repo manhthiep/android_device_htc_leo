@@ -25,7 +25,6 @@
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/init.htcleo.rc:root/init.htcleo.rc \
     device/htc/leo/prebuilt/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
-    device/htc/leo/prebuilt/init.rc:root/init.rc \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -59,13 +58,15 @@ PRODUCT_PACKAGES += \
     sensors.htcleo \
     lights.htcleo \
     librs_jni \
-    libc \
     gralloc.qsd8k \
     copybit.qsd8k \
     leo-reference-ril \
     gps.htcleo \
     libgps \
-    libhtc_ril_wrapper
+    libhtc_ril_wrapper \
+    audio.a2dp.default \
+    audio.primary.qsd8k \
+    audio_policy.qsd8k
 
 
 

@@ -62,9 +62,9 @@ BOARD_VENDOR_QCOM_AMSS_VERSION := 1550
 
 BOARD_VENDOR_USE_AKMD := akm8973
 
-BOARD_EGL_CFG := device/htc/leo/prebuilt/egl.cfg
+#BOARD_EGL_CFG := device/htc/leo/prebuilt/egl.cfg
 
-BOARD_USE_FROYO_LIBCAMERA := true
+#BOARD_USE_FROYO_LIBCAMERA := true
 
 TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 BOARD_NO_RGBX_8888 := true
@@ -72,8 +72,8 @@ BOARD_USES_QCOM_LIBS := true
 
 BOARD_USE_KINETO_COMPATIBILITY := true
 
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+#BOARD_HAVE_FM_RADIO := true
+#BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
 TARGET_CUSTOM_RELEASETOOL := device/htc/leo/releasetools/squisher
 
@@ -102,5 +102,6 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := leo
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
 
 TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/leo/prebuilt/recovery_kernel
--include device/htc/7x30-recovery/BoardConfigCommon.mk
-TARGET_PROVIDES_INIT_RC := true
+
+# Hardware rendering
+#USE_OPENGL_RENDERER := true
