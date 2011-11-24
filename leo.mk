@@ -87,6 +87,10 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
     device/htc/leo/prebuilt/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
 
+# Touchscreen
+PRODUCT_COPY_FILES += \
+    device/htc/leo/prebuilt/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
+
 #GSM APN LIST
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/apns-conf.xml:system/etc/apns-conf.xml
@@ -118,7 +122,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 # media profiles and capabilities spec
-$(call inherit-product, device/htc/leo/media_a1026.mk)
+$(call inherit-product, device/htc/leo/prebuilt/media_a1026.mk)
 
 # stuff common to all HTC phones
 #$(call inherit-product, device/htc/common/common.mk)
