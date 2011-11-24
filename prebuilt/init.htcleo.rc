@@ -1,11 +1,20 @@
 on init
     export TERMINFO /system/etc/terminfo
+    export EXTERNAL_STORAGE /mnt/sdcard
+    export SD_EXT_DIRECTORY /sd-ext
 
     symlink /dev/msm_camera/control0 /dev/msm_camera/control1
     symlink /dev/msm_camera/frame0 /dev/msm_camera/frame1
     symlink /dev/msm_camera/config0 /dev/msm_camera/config1
 
     write /proc/sys/kernel/sched_min_granularity_ns 100000
+
+    # create mountpoints
+    mkdir /mnt 0775 root system
+    mkdir /mnt/sdcard 0000 system system
+
+    # Backwards Compat - XXX: Going away in G*
+    symlink /mnt/sdcard /sdcard
 
 on fs
     mount yaffs2 mtd@system /system remount
@@ -74,9 +83,6 @@ on boot
     chown system system /sys/camera_led_status/led_wimax_status
     chown system system /sys/camera_led_status/led_hotspot_status
     chown media system /sys/android_camera/cam_mode
-
-    # enable the GPS
-    #setprop ro.ril.def.agps.mode 2
 
     # performance tweaks for flash
     write /sys/block/mtdblock3/bdi/read_ahead_kb 2048
@@ -226,13 +232,6 @@ service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm \
     group bluetooth net_bt_admin
     disabled
 
-#service btld /system/bin/logwrapper /system/bin/btld -lpm 1 -hb 3000000
-#    class main
-#    user root
-#    group bluetooth net_bt_admin
-#    disabled
-#    oneshot
- 
 # compass/accelerometer daemon
 service akmd /system/bin/akmd
     class main
