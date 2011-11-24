@@ -59,3 +59,5 @@ ro.opengles.version=131072
 
 ro.media.dec.jpeg.memcap=20000000
 
+# AGPS options
+ro.ril.def.agps.mode=2

@@ -89,7 +89,7 @@ PRODUCT_COPY_FILES += \
 
 #GSM APN LIST
 PRODUCT_COPY_FILES += \
-    development/data/etc/apns-conf.xml:system/etc/apns-conf.xml
+    device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
 # kernel modules
 PRODUCT_COPY_FILES += \
