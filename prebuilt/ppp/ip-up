@@ -1,0 +1,48 @@
+#!/system/bin/sh
+
+#/bin/touch /etc/ppp/ppp0.pid
+#/bin/chmod 777 /etc/ppp/ppp0.pid
+
+case $1 in
+    ppp1)
+        iptables --flush;
+        iptables --table nat --flush;
+        iptables --delete-chain;
+        iptables --table nat --append POSTROUTING --out-interface ppp0 -j MASQUERADE;
+        iptables --append FORWARD --in-interface ppp1 -j ACCEPT;
+        echo 0 > /proc/sys/net/ipv4/ip_forward;
+        echo 1 > /proc/sys/net/ipv4/ip_forward;
+        ;;
+    ppp0)
+        echo "ip-up fired" > /tmp/ppp.log
+        # /system/bin/setprop "net.interfaces.defaultroute" "gprs"
+        ;;
+esac
+
+# Use interface name if linkname is not available
+NAME=${LINKNAME:-$1}
+
+/system/bin/touch /etc/ppp/ppp0.pid
+/system/bin/chmod 777 /etc/ppp/ppp0.pid
+/system/bin/echo $(pidof pppd) > /etc/ppp/ppp0.pid
+echo "nameserver $DNS1" > /etc/ppp/resolv.conf
+echo "nameserver $DNS2" >> /etc/ppp/resolv.conf
+
+/system/bin/setprop "net.$NAME.dns1" "$DNS1"
+/system/bin/setprop "net.$NAME.dns2" "$DNS2"
+/system/bin/setprop "net.$NAME.local-ip" "$IPLOCAL"
+/system/bin/setprop "net.$NAME.remote-ip" "$IPREMOTE"
+/system/bin/setprop "net.dns1" "$DNS1"
+/system/bin/setprop "net.dns2" "$DNS2"
+modem_log()
+{
+        /bin/echo -e "${@}" >> /tmp/ppp.log
+}
+modem_log "Connection attempt SUCCESSFUL!"
+modem_log "Phone IP:  `/bin/ifconfig ppp0 | /bin/grep 'inet addr:' | /bin/cut -d':' -f2 | /bin/cut -d' ' -f1`"
+modem_log "Subnet  :  `/bin/ifconfig ppp0 | /bin/grep 'inet addr:' | /bin/cut -d':' -f4 | /bin/cut -d' ' -f1`"
+modem_log "P-t-P   :  `/bin/ifconfig ppp0 | /bin/grep 'inet addr:' | /bin/cut -d':' -f3 | /bin/cut -d' ' -f1`"
+modem_log "Done!"
+sleep 1
+/system/bin/setprop "net.dns1" "$DNS1"
+/system/bin/setprop "net.dns2" "$DNS2"

@@ -95,6 +95,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/apns-conf.xml:system/etc/apns-conf.xml
 
+# PPP files
+PRODUCT_COPY_FILES += \
+    device/htc/leo/prebuilt/ppp/ip-up:system/etc/ppp/ip-up \
+    device/htc/leo/prebuilt/ppp/ip-down:system/etc/ppp/ip-down \
+    device/htc/leo/prebuilt/ppp/options:system/etc/ppp/options
+
 # kernel modules
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
