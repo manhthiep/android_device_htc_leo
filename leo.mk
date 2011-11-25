@@ -89,9 +89,9 @@ PRODUCT_COPY_FILES += \
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
-    device/htc/leo/prebuilt/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
+    device/htc/leo/prebuilt/htcleo-touchscreen.idc:system/usr/idc/htcleo-touchscreen.idc
 
-#GSM APN LIST
+# GSM APN LIST
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/apns-conf.xml:system/etc/apns-conf.xml
 
