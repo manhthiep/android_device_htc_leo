@@ -19,6 +19,7 @@ lib/libcamera.so
 lib/libgsl.so
 lib/libhtc_acoustic.so
 lib/libhtc_ril.so
+lib/libhtc_ril_wrapper.so
 lib/liboemcamera.so
 lib/libOmxVdec.so
 lib/libOmxVidEnc.so
