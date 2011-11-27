@@ -91,10 +91,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/htcleo-touchscreen.idc:system/usr/idc/htcleo-touchscreen.idc
 
-# GSM APN LIST
-PRODUCT_COPY_FILES += \
-    device/htc/leo/prebuilt/apns-conf.xml:system/etc/apns-conf.xml
-
 # PPP files
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/ppp/ip-up:system/etc/ppp/ip-up \
@@ -131,7 +127,10 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, device/htc/leo/prebuilt/media_a1026.mk)
 
 # stuff common to all HTC phones
-#$(call inherit-product, device/htc/common/common.mk)
+$(call inherit-product, device/htc/common/common.mk)
+
+# Add vendor stuff
+$(call inherit-product-if-exists, vendor/cm/config/common.mk)
 
 PRODUCT_NAME := htc_leo
 PRODUCT_DEVICE := leo
