@@ -11,6 +11,7 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 $(call inherit-product, device/htc/leo/leo.mk)
 
 ## Device identifier. This must come after all inclusions
+PRODUCT_BRAND := htc
 PRODUCT_DEVICE := leo
 PRODUCT_NAME := cm_leo
 
