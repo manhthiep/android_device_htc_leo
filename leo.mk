@@ -61,7 +61,6 @@ PRODUCT_PACKAGES += \
     lights.htcleo \
     librs_jni \
     gralloc.qsd8k \
-    copybit.qsd8k \
     leo-reference-ril \
     gps.htcleo \
     libgps \
@@ -130,9 +129,6 @@ $(call inherit-product, device/htc/leo/prebuilt/media_a1026.mk)
 
 # stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)
-
-# Add vendor stuff
-$(call inherit-product-if-exists, vendor/cm/config/common.mk)
 
 PRODUCT_NAME := htc_leo
 PRODUCT_DEVICE := leo
