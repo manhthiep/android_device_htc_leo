@@ -103,9 +103,11 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
     device/htc/leo/prebuilt/modules/cifs.ko:system/lib/modules/cifs.ko \
     device/htc/leo/prebuilt/modules/msm_rmnet.ko:system/lib/modules/msm_rmnet.ko \
-    device/htc/leo/prebuilt/modules/nls_utf8.ko:system/lib/modules/nls_utf8.ko \
     device/htc/leo/prebuilt/modules/tun.ko:system/lib/modules/tun.ko \
-    device/htc/leo/prebuilt/modules/fuse.ko:system/lib/modules/fuse.ko
+    device/htc/leo/prebuilt/modules/fuse.ko:system/lib/modules/fuse.ko \
+    device/htc/leo/prebuilt/modules/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
+    device/htc/leo/prebuilt/modules/alsa-mix-htc-leo.ko:system/lib/modules/alsa-mix-htc-leo.ko \
+    device/htc/leo/prebuilt/modules/alsa-pcm-htc-leo.ko:system/lib/modules/alsa-pcm-htc-leo.ko
 
 # kernel
 PRODUCT_COPY_FILES += \
