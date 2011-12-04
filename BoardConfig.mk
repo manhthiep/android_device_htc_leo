@@ -41,11 +41,12 @@ TARGET_BOOTLOADER_BOARD_NAME := htcleo
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WPA_SUPPLICANT_VERSION      := VER_0_6_X
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
+WPA_SUPPLICANT_VERSION      := VER_0_8_X
 BOARD_WLAN_DEVICE           := bcm4329
 WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/bcm4329.ko"
-WIFI_DRIVER_FW_STA_PATH     := "/vendor/firmware/fw_bcm4329.bin"
-WIFI_DRIVER_FW_AP_PATH      := "/vendor/firmware/fw_bcm4329_apsta.bin"
+WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcm4329.bin"
+WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcm4329_apsta.bin"
 WIFI_DRIVER_MODULE_ARG      := "firmware_path=/vendor/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
 WIFI_DRIVER_MODULE_NAME     := "bcm4329"
 
@@ -61,8 +62,6 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_VENDOR_QCOM_AMSS_VERSION := 1550
 
 BOARD_VENDOR_USE_AKMD := akm8973
-
-#BOARD_EGL_CFG := device/htc/leo/prebuilt/egl.cfg
 
 #BOARD_USE_FROYO_LIBCAMERA := true
 
@@ -104,4 +103,10 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
 TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/leo/prebuilt/recovery_kernel
 
 # Hardware rendering
-#USE_OPENGL_RENDERER := true
+USE_OPENGL_RENDERER := true
+BOARD_EGL_CFG := device/htc/leo/prebuilt/egl.cfg
+
+#temp hw hack
+BOARD_NO_RGBX_8888 := true
+BOARD_USES_OVERLAY := true
+COMMON_GLOBAL_CFLAGS += -DBOARD_GL_OES_EGL_IMG_EXTERNAL_HACK

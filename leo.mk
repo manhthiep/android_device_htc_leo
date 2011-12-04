@@ -60,14 +60,14 @@ PRODUCT_PACKAGES += \
     sensors.htcleo \
     lights.htcleo \
     librs_jni \
-    gralloc.qsd8k \
     leo-reference-ril \
     gps.htcleo \
     libgps \
     libhtc_ril_wrapper \
-    audio.a2dp.default \
+#    audio.a2dp.default \
     audio.primary.qsd8k \
-    audio_policy.qsd8k
+    audio_policy.qsd8k \
+    copybit.qsd8k
 
 
 
