@@ -213,7 +213,7 @@ on boot
     # PPP stuff
     chown radio radio /dev/smd1
     chown root radio /system/etc/ppp
-    chown root root /system/bin/pppd;
+    chown root root /system/bin/pppd
     chmod 755 /system/etc/ppp/*
     chmod 4755 /system/bin/pppd
   
