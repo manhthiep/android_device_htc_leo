@@ -64,12 +64,9 @@ PRODUCT_PACKAGES += \
     gps.htcleo \
     libgps \
     libhtc_ril_wrapper \
-#    audio.a2dp.default \
     audio.primary.qsd8k \
     audio_policy.qsd8k \
     copybit.qsd8k
-
-
 
 # leo uses high-density artwork where available 
 PRODUCT_LOCALES := hdpi
