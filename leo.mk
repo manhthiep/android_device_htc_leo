@@ -46,7 +46,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml
 
 # media config xml file
 PRODUCT_COPY_FILES += \
@@ -96,16 +96,11 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/ppp/ip-down:system/etc/ppp/ip-down \
     device/htc/leo/prebuilt/ppp/options:system/etc/ppp/options
 
-# kernel modules
-PRODUCT_COPY_FILES += \
-    device/htc/leo/prebuilt/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
-    device/htc/leo/prebuilt/modules/cifs.ko:system/lib/modules/cifs.ko \
-    device/htc/leo/prebuilt/modules/msm_rmnet.ko:system/lib/modules/msm_rmnet.ko \
-    device/htc/leo/prebuilt/modules/tun.ko:system/lib/modules/tun.ko \
-    device/htc/leo/prebuilt/modules/fuse.ko:system/lib/modules/fuse.ko \
-    device/htc/leo/prebuilt/modules/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
-    device/htc/leo/prebuilt/modules/alsa-mix-htc-leo.ko:system/lib/modules/alsa-mix-htc-leo.ko \
-    device/htc/leo/prebuilt/modules/alsa-pcm-htc-leo.ko:system/lib/modules/alsa-pcm-htc-leo.ko
+# Kernel Modules
+PRODUCT_COPY_FILES += $(shell \
+    find device/htc/leo/prebuilt/modules -name '*.ko' \
+    | sed -r 's/^\/?(.*\/)([^/ ]+)$$/\1\2:system\/lib\/modules\/\2/' \
+    | tr '\n' ' ')
 
 # kernel
 PRODUCT_COPY_FILES += \
