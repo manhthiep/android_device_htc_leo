@@ -32,10 +32,10 @@
     <int name="maxImageWidth">2592</int>
 
     <!-- User-Agent parameter used in MMS http request -->
-    <string name="userAgent">Leo</string>
+    <string name="userAgent">Bravo</string>
 
     <!-- UAProf URL -->
-    <string name="uaProfUrl">http://www.htcmms.com.tw/Android/Common/leo/ua-profile.xml</string>
+    <string name="uaProfUrl">http://www.htcmms.com.tw/Android/Common/Bravo/ua-profile.xml</string>
 
     <!-- Maximum number of recipients allowed per message. Use a value of -1
          to indicate no limit. -->
