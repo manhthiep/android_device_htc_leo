@@ -103,10 +103,10 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
 TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/leo/prebuilt/recovery_kernel
 
 # Hardware rendering
-#SE_OPENGL_RENDERER := true
-#BOARD_EGL_CFG := device/htc/leo/prebuilt/egl.cfg
+USE_OPENGL_RENDERER := true
+BOARD_EGL_CFG := device/htc/leo/prebuilt/egl.cfg
 
 #temp hw hack
-#BOARD_NO_RGBX_8888 := true
+BOARD_NO_RGBX_8888 := true
 #BOARD_USES_OVERLAY := true
 #COMMON_GLOBAL_CFLAGS += -DBOARD_GL_OES_EGL_IMG_EXTERNAL_HACK
