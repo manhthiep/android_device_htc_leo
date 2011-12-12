@@ -27,5 +27,6 @@ PRODUCT_PACKAGES += \
 # Release name and versioning
 PRODUCT_RELEASE_NAME := Leo
 PRODUCT_VERSION_DEVICE_SPECIFIC := -aali
--include vendor/cyanogen/products/common_versions.mk
+
+-include vendor/cm/products/common_versions.mk
 

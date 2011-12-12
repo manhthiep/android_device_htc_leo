@@ -74,7 +74,7 @@ BOARD_USE_KINETO_COMPATIBILITY := true
 #BOARD_HAVE_FM_RADIO := true
 #BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
-#TARGET_CUSTOM_RELEASETOOL := device/htc/leo/releasetools/squisher
+TARGET_CUSTOM_RELEASETOOL := device/htc/leo/releasetools/squisher
 
 # # cat /proc/mtd
 # dev:    size   erasesize  name
