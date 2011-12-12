@@ -91,7 +91,7 @@ PRODUCT_COPY_FILES += \
 
 # PPP files
 PRODUCT_COPY_FILES += \
-    device/htc/leo/prebuilt/ppp/97ppp:system/etc/init.d \
+    device/htc/leo/prebuilt/ppp/97ppp:system/etc/init.d/97ppp \
     device/htc/leo/prebuilt/ppp/ip-up:system/etc/ppp/ip-up \
     device/htc/leo/prebuilt/ppp/ip-down:system/etc/ppp/ip-down \
     device/htc/leo/prebuilt/ppp/options:system/etc/ppp/options
