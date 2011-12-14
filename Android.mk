@@ -17,9 +17,9 @@ ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),htcleo)
 LOCAL_PATH := $(my-dir)
 subdir_makefiles := \
 	$(LOCAL_PATH)/libsensors/Android.mk \
-	$(LOCAL_PATH)/liblights/Android.mk 
+	$(LOCAL_PATH)/liblights/Android.mk \ 
+	$(LOCAL_PATH)/libgps/Android.mk
 
-#	$(LOCAL_PATH)/libgps/Android.mk
 #	$(LOCAL_PATH)/libreference-ril/Android.mk \
 #	$(LOCAL_PATH)/libhtc_ril_wrapper/Android.mk \
 
