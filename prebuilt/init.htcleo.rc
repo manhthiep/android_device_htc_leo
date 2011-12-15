@@ -16,8 +16,8 @@ on init
     # Backwards Compat - XXX: Going away in G*
     symlink /mnt/sdcard /sdcard
 
-on fs
-    mount yaffs2 mtd@system /system remount
+on post-fs
+    mount yaffs2 mtd@system /system rw remount
     mount rootfs rootfs / rw remount
     mkdir /sd-ext 0771 system system
 
@@ -126,7 +126,7 @@ on boot
     chown root radio /proc/cmdline
     chown bluetooth bluetooth /dev/ttyHS0
     chown system system /dev/smd0
-    chown system system /dev/smd1
+    chown radio radio /dev/smd1
     chown system system /dev/smd27
 
     chmod 0666 /dev/rfkill
@@ -215,8 +215,13 @@ on boot
     # PPP stuff
     chown radio radio /dev/smd1
     chown root radio /system/etc/ppp
+    chown root radio /system/etc/ppp/ip-up
+    chown root radio /system/etc/ppp/ip-up-vpn
+    chown root radio /system/etc/ppp/ip-down
+    chown root radio /system/etc/ppp/options
     chown root root /system/bin/pppd
-    chmod 755 /system/etc/ppp/*
+    chmod 775 /system/etc/ppp
+    chmod 775 /system/etc/ppp/*
     chmod 4755 /system/bin/pppd
   
     # Enabling PPP enabled, doing PPP specific stuff
