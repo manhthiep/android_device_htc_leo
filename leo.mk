@@ -55,9 +55,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/media_profiles.xml:system/etc/media_profiles.xml
 
-# This file is used to install the enable RMNET and corresponding modules which dont get activated by normal module script
+# This file is used to install the enable RMNET and corresponding modules which dont get activated by normal module script, mount cache so that downloads work correctly
 PRODUCT_COPY_FILES += \
-    device/htc/leo/prebuilt/01modules:system/etc/init.d/01modules
+    device/htc/leo/prebuilt/01modules:system/etc/init.d/01modules \
+    device/htc/leo/prebuilt/02cachesd:system/etc/init.d/02achesd
 
 PRODUCT_PACKAGES += \
     sensors.htcleo \
