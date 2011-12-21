@@ -24,6 +24,7 @@
 
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/init.htcleo.rc:root/init.htcleo.rc \
+    device/htc/leo/prebuilt/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
     device/htc/leo/prebuilt/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
     device/htc/leo/prebuilt/logo.rle:root/logo.rle \
 
