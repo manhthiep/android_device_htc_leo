@@ -22,11 +22,12 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=leo BUILD_ID=IML74K BUILD_DISPLAY_I
 
 
 PRODUCT_PACKAGES += \
-    Camera
+    Camera \
+    CMSettings
 
 # Release name and versioning
-PRODUCT_RELEASE_NAME := Leo
-PRODUCT_VERSION_DEVICE_SPECIFIC := -aali
+PRODUCT_RELEASE_NAME := LEO
+#PRODUCT_VERSION_DEVICE_SPECIFIC := -aali
 
 -include vendor/cm/products/common_versions.mk
 

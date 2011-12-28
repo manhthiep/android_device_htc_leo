@@ -2,7 +2,7 @@
 # This script is included in squisher
 # It is the final build step (after OTA package)
 
-echo "updater-script: Making Compatible Update script"
+echo "updater-script: Making MAGLDR Compatible Update script"
 cd $REPACK/ota/META-INF/com/google/android
 echo 'mount("yaffs2", "MTD", "boot", "/boot");' >> temp
 echo 'package_extract_dir("boot", "/boot");' >> temp
