@@ -21,7 +21,7 @@
      for different hardware and product builds. -->
 <resources>
 
- <!-- Flag indicating whether the surface flinger has limited
+    <!-- Flag indicating whether the surface flinger has limited
          alpha compositing functionality in hardware.  If set, the window
          manager will disable alpha trasformation in animations where not
          strictly needed. -->
@@ -31,14 +31,13 @@
          config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
     <bool name="config_automatic_brightness_available">true</bool>
 
-   
     <!-- disable menu hard key on HD2 in non-pattern lockscreen -->
     <bool name="config_disableMenuKeyInLockScreen">true</bool>
 
-<!-- Flag indicating whether the surface flinger has limited
-     alpha compositing functionality in hardware.  If set, the window
-     manager will disable alpha trasformation in animations where not
-     strictly needed. -->
+    <!-- Flag indicating whether the surface flinger has limited
+         alpha compositing functionality in hardware.  If set, the window
+         manager will disable alpha trasformation in animations where not
+         strictly needed. -->
     <bool name="config_sf_limitedAlpha">true</bool>
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
@@ -129,7 +128,6 @@
     <!-- Component name of the service providing geocoder API support. -->
     <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
 
-
     <!-- An Array of "[Connection name],[ConnectivityManager.TYPE_xxxx],
          [associated radio-type],[priority],[restoral-timer(ms)],[dependencyMet]  -->
     <!-- the 5th element "resore-time" indicates the number of milliseconds to delay
@@ -161,7 +159,7 @@
         <item>"wl0.1"</item>
     </string-array>
 
-  <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
+    <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
     <integer-array name="config_keyboardTapVibePattern">
         <item>30</item>
     </integer-array>
@@ -183,4 +181,7 @@
 
     <!-- Enable use of power animations -->
     <bool name="config_animateScreenLights">false</bool>
+
+    <!-- Use legacy usb -->
+    <bool name="config_usesLegacyUsbDeviceManager">true</bool>
 </resources>

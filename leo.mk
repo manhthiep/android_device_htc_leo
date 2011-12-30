@@ -47,7 +47,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml
@@ -58,8 +58,8 @@ PRODUCT_COPY_FILES += \
 
 # This file is used to install the enable RMNET and corresponding modules which dont get activated by normal module script, mount cache so that downloads work correctly
 PRODUCT_COPY_FILES += \
-    device/htc/leo/prebuilt/01modules:system/etc/init.d/01modules \
-    device/htc/leo/prebuilt/02cachesd:system/etc/init.d/02cachesd
+    device/htc/leo/prebuilt/init.d/01modules:system/etc/init.d/01modules \
+    device/htc/leo/prebuilt/init.d/02cachesd:system/etc/init.d/02cachesd
 
 PRODUCT_PACKAGES += \
     sensors.htcleo \
