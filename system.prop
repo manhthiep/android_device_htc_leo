@@ -64,3 +64,6 @@ ro.ril.def.agps.mode=2
 
 # Show the correct dBm value
 ro.telephony.ril.v3=1
+
+# Disable HWAccel for now
+ro.config.disable_hw_accel=true

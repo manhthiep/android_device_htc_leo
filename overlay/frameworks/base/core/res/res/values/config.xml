@@ -181,7 +181,4 @@
 
     <!-- Enable use of power animations -->
     <bool name="config_animateScreenLights">false</bool>
-
-    <!-- Use legacy usb -->
-    <bool name="config_usesLegacyUsbDeviceManager">true</bool>
 </resources>
