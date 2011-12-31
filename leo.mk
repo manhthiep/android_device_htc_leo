@@ -94,7 +94,7 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 # htcleo misc
-PRODUCT_PACKAGES +=
+PRODUCT_PACKAGES += \
     librs_jni \
     leo-reference-ril \
     libgps \
