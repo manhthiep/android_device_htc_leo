@@ -61,21 +61,45 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/init.d/01modules:system/etc/init.d/01modules \
     device/htc/leo/prebuilt/init.d/02cachesd:system/etc/init.d/02cachesd
 
+# Sensors
 PRODUCT_PACKAGES += \
     sensors.htcleo \
     lights.htcleo \
-    librs_jni \
-    leo-reference-ril \
     gps.htcleo \
-    libgps \
-    com.android.future.usb.accessory \
-    libhtc_ril_wrapper \
+
+# Audio
+PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.qsd8k \
     audio_policy.qsd8k \
-    hwcomposer.default \
+    libaudioutils
+
+# GPU
+PRODUCT_PACKAGES += \
     copybit.qsd8k \
     gralloc.qsd8k
+    hwcomposer.default \
+    hwcomposer.qsd8k \
+    libgenlock \
+    libmemalloc \
+    liboverlay \
+    libtilerenderer \
+    libQcomUI
+
+# Omx
+PRODUCT_PACKAGES += \
+    libOmxCore \
+    libOmxVenc \
+    libOmxVdec \
+    libstagefrighthw
+
+# htcleo misc
+PRODUCT_PACKAGES +=
+    librs_jni \
+    leo-reference-ril \
+    libgps \
+    com.android.future.usb.accessory \
+    libhtc_ril_wrapper
 
 # leo uses high-density artwork where available 
 PRODUCT_LOCALES := hdpi
