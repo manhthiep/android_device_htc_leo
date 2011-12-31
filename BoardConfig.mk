@@ -111,3 +111,5 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 
 # Call headers from msm-3.0: needed to build libs in hardware/qcom/display
 TARGET_SPECIFIC_HEADER_PATH := device/htc/leo/include
+
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
