@@ -79,19 +79,14 @@ PRODUCT_PACKAGES += \
     copybit.qsd8k \
     gralloc.qsd8k \
     hwcomposer.default \
-    hwcomposer.qsd8k \
-#    libgenlock \
-#    libmemalloc \
-#    liboverlay \
-#    libtilerenderer \
-#    libQcomUI
+    hwcomposer.qsd8k 
 
 # Omx
-#PRODUCT_PACKAGES += \
-#    libOmxCore \
-#    libOmxVenc \
-#    libOmxVdec \
-#    libstagefrighthw
+PRODUCT_PACKAGES += \
+    libOmxCore \
+    libOmxVenc \
+    libOmxVdec \
+    libstagefrighthw
 
 # htcleo misc
 PRODUCT_PACKAGES += \

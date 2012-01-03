@@ -39,6 +39,10 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_BOOTLOADER_BOARD_NAME := htcleo
 
+# FPU compilation flags
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
+
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
@@ -107,7 +111,7 @@ TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/leo/prebuilt/recovery_kernel
 BOARD_EGL_CFG := device/htc/leo/prebuilt/egl.cfg
 BOARD_NO_RGBX_8888 := true
 BOARD_USES_OVERLAY := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS -DUNABLE_TO_DEQUEUE
 
 # Call headers from msm-3.0: needed to build libs in hardware/qcom/display
 TARGET_SPECIFIC_HEADER_PATH := device/htc/leo/include
