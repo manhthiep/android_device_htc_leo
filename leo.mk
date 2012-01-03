@@ -95,6 +95,7 @@ PRODUCT_PACKAGES += \
 
 # htcleo misc
 PRODUCT_PACKAGES += \
+    camera.qsd8k \
     librs_jni \
     leo-reference-ril \
     libgps \
