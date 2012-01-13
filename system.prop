@@ -67,3 +67,6 @@ ro.telephony.ril.v3=1
 
 # Disable HWAccel for now
 ro.config.disable_hw_accel=true
+
+# USB Mounting
+persist.sys.usb.config=mass_storage,adb
