@@ -20,11 +20,6 @@ PRODUCT_NAME := cm_leo
 #Set build fingerprint / ID / Prduct Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=leo BUILD_ID=IML74K BUILD_DISPLAY_ID=IML74K BUILD_FINGERPRINT="google/htc_leo/leo:4.0.3/IML74K/239410:user/release-keys" PRVIATE_BUILD_DESC="full_leo-user 4.0.3 IML74K 239410 release-keys"
 
-
-PRODUCT_PACKAGES += \
-    Camera \
-    CMSettings
-
 # Release name and versioning
 PRODUCT_RELEASE_NAME := LEO
 #PRODUCT_VERSION_DEVICE_SPECIFIC := -aali

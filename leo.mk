@@ -99,9 +99,10 @@ PRODUCT_PACKAGES += \
     libgps \
     com.android.future.usb.accessory \
     libhtc_ril_wrapper
-
-# leo uses high-density artwork where available 
-PRODUCT_LOCALES := hdpi
+	
+# leo uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/vold.fstab:system/etc/vold.fstab
