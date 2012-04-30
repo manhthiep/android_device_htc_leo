@@ -36,7 +36,8 @@ PRODUCT_LOCALES := en
 # General properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240 \
-    rild.libpath=/system/lib/libhtc_ril.so \
+    rild.libpath=/system/lib/libhtc_ril_wrapper.so \
+	rild.libargs=-d /dev/smd0 \
 	ro.ril.ecc.HTC-ELL=92,93,94 \
     ro.ril.ecc.HTC-WWE=999 \
     ro.ril.enable.a52.HTC-ITA=1 \
@@ -51,13 +52,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.def.agps.mode=2 \
     ro.ril.enable.managed.roaming=1 \
     ro.ril.oem.nosim.ecclist=911,112,999,000,08,118,120,122,110,119,995 \
-    ro.ril.emc.mode=2
+    ro.ril.emc.mode=2 \
+	wifi.interface=wlan0 \
+	mobiledata.interfaces=rmnet0,rmnet1,rmnet2,ppp0
 	
 PRODUCT_PROPERTY_OVERRIDES += \
 	media.a1026.nsForVoiceRec=0 \
 	media.a1026.enableA1026=1 \
 	ro.media.dec.jpeg.memcap=20000000 \
-	ro.opengles.version=131072 
+	ro.opengles.version=131072
+	
+# Default network type.
+# 0 => /* GSM/WCDMA (WCDMA preferred) */
+# 3 => /* GSM/WCDMA (auto mode, according to PRL) */
+PRODUCT_PROPERTY_OVERRIDES += ro.telephony.default_network=3
+
+# Set default_france.acdb to audio_ctl driver if the ro.cid is HTC__203
+PRODUCT_PROPERTY_OVERRIDES += ro.ril.enable.prl.recognition=1
 	
 # Reduce wifi scan. Better batery life
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -96,7 +107,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     sensors.htcleo \
     lights.htcleo \
-    gps.htcleo \
+    gps.htcleo
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -131,7 +142,7 @@ PRODUCT_PACKAGES += \
     libhtc_ril_wrapper
 	
 # Omx cli test apps
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
 	libmm-omxcore \
 	mm-vdec-omx-test \
 	liblasic \
@@ -185,11 +196,6 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/keylayout/htcleo-keypad.kl:system/usr/keylayout/htcleo-keypad.kl \
     device/htc/leo/prebuilt/keylayout/htcleo-keypad.kcm.bin:system/usr/keychars/htcleo-keypad.kcm.bin \
     device/htc/leo/prebuilt/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl
-
-# Firmware
-PRODUCT_COPY_FILES += \
-    device/htc/leo/prebuilt/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
-    device/htc/leo/prebuilt/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
