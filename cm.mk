@@ -1,14 +1,12 @@
-## Specify phone tech before including full_phone
-$(call inherit-product, vendor/cm/config/gsm.mk)
+# Inherit AOSP device configuration for leo.
+$(call inherit-product, device/htc/leo/full_leo.mk)
 
-# Release name
-PRODUCT_RELEASE_NAME := GN
-
-# Inherit some common CM stuff.
+# Inherit some common cyanogenmod stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-# Inherit device configuration
-$(call inherit-product, device/htc/leo/full_leo.mk)
+# Include GSM stuff
+$(call inherit-product, vendor/cm/config/gsm.mk)
+
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_MODEL := HTC HD2
@@ -16,13 +14,8 @@ PRODUCT_MANUFACTURER := HTC
 PRODUCT_BRAND := htc
 PRODUCT_DEVICE := leo
 PRODUCT_NAME := cm_leo
+PRODUCT_CODENAME := leo
 
-#Set build fingerprint / ID / Prduct Name ect.
+# Set build fingerprint / ID / Prduct Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=leo BUILD_ID=IML74K BUILD_DISPLAY_ID=IML74K BUILD_FINGERPRINT="google/htc_leo/leo:4.0.3/IML74K/239410:user/release-keys" PRVIATE_BUILD_DESC="full_leo-user 4.0.3 IML74K 239410 release-keys"
-
-# Release name and versioning
-PRODUCT_RELEASE_NAME := LEO
-#PRODUCT_VERSION_DEVICE_SPECIFIC := -aali
-
--include vendor/cm/products/common_versions.mk
 

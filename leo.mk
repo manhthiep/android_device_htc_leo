@@ -14,14 +14,6 @@
 # limitations under the License.
 #
 
-#
-# This is the product configuration for a generic GSM leo,
-# not specialized for any geography.
-#
-
-
-## (1) First, the most specific values, i.e. the aspects that are specific to GSM
-
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/init.htcleo.rc:root/init.htcleo.rc \
     device/htc/leo/prebuilt/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
@@ -38,8 +30,44 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/leo/leo-vendor.mk)
 
-
 DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
+PRODUCT_LOCALES := en
+
+# General properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=240 \
+    rild.libpath=/system/lib/libhtc_ril.so \
+	ro.ril.ecc.HTC-ELL=92,93,94 \
+    ro.ril.ecc.HTC-WWE=999 \
+    ro.ril.enable.a52.HTC-ITA=1 \
+    ro.ril.enable.a53.HTC-ITA=1 \
+    ro.ril.enable.a52=0 \
+    ro.ril.enable.a53=1 \
+    ro.ril.enable.dtm=1 \
+    ro.ril.gprsclass=12 \
+    ro.ril.hsdpa.category=8 \
+    ro.ril.hsupa.category=5 \
+    ro.ril.hsxpa=2 \
+    ro.ril.def.agps.mode=2 \
+    ro.ril.enable.managed.roaming=1 \
+    ro.ril.oem.nosim.ecclist=911,112,999,000,08,118,120,122,110,119,995 \
+    ro.ril.emc.mode=2
+	
+PRODUCT_PROPERTY_OVERRIDES += \
+	media.a1026.nsForVoiceRec=0 \
+	media.a1026.enableA1026=1 \
+	ro.media.dec.jpeg.memcap=20000000 \
+	ro.opengles.version=131072 
+	
+# Reduce wifi scan. Better batery life
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.ril.disable.power.collapse=0 \
+	wifi.supplicant_scan_interval=180 
+
+# Fix black screen after call
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.lge.proximity.delay=10 \
+	mot.proximity.delay=10 
 
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -82,7 +110,11 @@ PRODUCT_PACKAGES += \
     copybit.qsd8k \
     gralloc.qsd8k \
     hwcomposer.default \
-    hwcomposer.qsd8k 
+    hwcomposer.qsd8k \
+	libgenlock \
+	libmemalloc \
+	libtilerenderer \
+	libQcomUI 
 
 # Omx
 PRODUCT_PACKAGES += \
@@ -94,15 +126,56 @@ PRODUCT_PACKAGES += \
 # htcleo misc
 PRODUCT_PACKAGES += \
     camera.qsd8k \
-    librs_jni \
     leo-reference-ril \
     libgps \
-    com.android.future.usb.accessory \
     libhtc_ril_wrapper
+	
+# Omx cli test apps
+PRODUCT_PACKAGES := \
+	libmm-omxcore \
+	mm-vdec-omx-test \
+	liblasic \
+	ast-mm-vdec-omx-test \
+	mm-venc-omx-test
+
+PRODUCT_PACKAGES += \
+    Stk \
+    Camera \
+    Launcher2
+	
+# strict mode
+ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
 	
 # leo uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	debug.sf.hw=1 \
+	debug.composition.type=mdp \
+	dalvik.vm.dexopt-flags=m=y \
+	dalvik.vm.checkjni=false \
+	dalvik.vm.heapsize=128m \
+	dalvik.vm.heapgrowthlimit=48m \
+	dalvik.vm.heapstartsize=5m \
+	windowsmgr.max_events_per_sec=120
+	
+# HardwareRenderer properties
+# dirty_regions: "false" to disable partial invalidates, override if enabletr=true
+PRODUCT_PROPERTY_OVERRIDES += \
+	hwui.render_dirty_regions=false \
+	hwui.disable_vsync=true \
+	hwui.print_config=choice \
+	debug.enabletr=false 
+	
+# Force 2 buffers - gralloc defaults to 3 and we only have 2
+PRODUCT_PROPERTY_OVERRIDES += \
+	debug.gr.numframebuffers=2
+
+# disable jni check	
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.kernel.android.checkjni=0 \
+	dalvik.vm.checkjni=0 
 
 PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/vold.fstab:system/etc/vold.fstab
@@ -136,7 +209,7 @@ PRODUCT_COPY_FILES += $(shell \
 
 # kernel
 PRODUCT_COPY_FILES += \
-    device/htc/leo/prebuilt/kernel:boot/zImage \
+    device/htc/leo/prebuilt/kernel:kernel
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := device/htc/leo/prebuilt/kernel
@@ -151,8 +224,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
-# media profiles and capabilities spec
-$(call inherit-product, device/htc/leo/prebuilt/media_a1026.mk)
 
 # stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)
