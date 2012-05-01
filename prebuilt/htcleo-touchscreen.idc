@@ -1,4 +1,4 @@
-# Copyright (C) 2010 The Android Open Source Project
+# Copyright (C) 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #
-# Input Device Calibration File for the Leo touch screen.
+# Input Device Calibration File for the htcleo touch screen.
 #
 
 # Basic Parameters
@@ -21,10 +21,10 @@ touch.deviceType = touchScreen
 touch.orientationAware = 1
 
 # Size
-touch.size.calibration = diameter
+touch.size.calibration = default
 touch.size.scale = 10
-touch.size.bias = 0
-touch.size.isSummed = 0
+touch.size.bias = 160
+touch.size.isSummed = 1
 
 # Pressure
 # Driver reports signal strength as pressure.
@@ -38,7 +38,7 @@ touch.size.isSummed = 0
 # a featherlight touch will be below 1.0 and a heavy or large touch
 # will be above 1.0.  We don't expect these values to be accurate.
 touch.pressure.calibration = amplitude
-touch.pressure.scale = 0.005
+touch.pressure.scale = 0.01
 
 # Orientation
 touch.orientation.calibration = none

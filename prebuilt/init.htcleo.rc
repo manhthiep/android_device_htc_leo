@@ -12,7 +12,7 @@ on fs
     mount yaffs2 mtd@system /system remount
 
     # cache hacks
-    mount yaffs2 mtd@cache /mnt/cache nosuid nodev
+    mount yaffs2 mtd@cache /mnt/cache nosuid nodev remount
     mount yaffs2 mtd@userdata /data nosuid nodev
 
     rmdir /cache
@@ -20,12 +20,15 @@ on fs
     mkdir /data/cache 0771 system cache
     symlink /data/cache /cache
 
-    mkdir /cache/dalvik-cache 0771 system system
-
     mkdir /mnt/cache/recovery 0770 system cache
     symlink /mnt/cache/recovery /cache/recovery
 
 on post-fs-data
+
+    mount rootfs rootfs / remount
+
+    mkdir /cache/dalvik-cache 0771 system system
+
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
