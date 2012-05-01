@@ -51,7 +51,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.enable.managed.roaming=1 \
 	ro.ril.oem.nosim.ecclist=911,112,999,000,08,118,120,122,110,119,995 \
 	ro.ril.emc.mode=2 \
-	wifi.interface=wlan0 \
+	wifi.interface=eth0 \
 	mobiledata.interfaces=rmnet0,rmnet1,rmnet2,ppp0
 	
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -63,10 +63,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Default network type.
 # 0 => /* GSM/WCDMA (WCDMA preferred) */
 # 3 => /* GSM/WCDMA (auto mode, according to PRL) */
-PRODUCT_PROPERTY_OVERRIDES += ro.telephony.default_network=3
-
-# Set default_france.acdb to audio_ctl driver if the ro.cid is HTC__203
-PRODUCT_PROPERTY_OVERRIDES += ro.ril.enable.prl.recognition=1
+PRODUCT_PROPERTY_OVERRIDES += ro.telephony.default_network=0
 	
 # Reduce wifi scan. Better batery life
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -103,8 +100,7 @@ PRODUCT_COPY_FILES += \
 
 # This file is used to install the enable RMNET and corresponding modules which dont get activated by normal module script, mount cache so that downloads work correctly
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/init.d/01modules:system/etc/init.d/01modules \
-	device/htc/leo/prebuilt/init.d/02cachesd:system/etc/init.d/02cachesd
+	device/htc/leo/prebuilt/init.d/01modules:system/etc/init.d/01modules
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -125,6 +121,7 @@ PRODUCT_PACKAGES += \
 	gralloc.qsd8k \
 	hwcomposer.default \
 	hwcomposer.qsd8k \
+	liboverlay \
 	libgenlock \
 	libmemalloc \
 	libtilerenderer \
@@ -172,6 +169,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapsize=128m \
 	dalvik.vm.heapgrowthlimit=48m \
 	dalvik.vm.heapstartsize=5m \
+	dalvik.vm.dexopt-data-only=1 \
 	windowsmgr.max_events_per_sec=120
 	
 # HardwareRenderer properties
@@ -191,13 +189,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.kernel.android.checkjni=0 \
 	dalvik.vm.checkjni=0 
 
+# Set usb type
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.usb.config=mass_storage \
+	persist.service.adb.enable=1
+	
 PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/vold.fstab:system/etc/vold.fstab
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/keylayout/htcleo-keypad.kl:system/usr/keylayout/htcleo-keypad.kl \
-	device/htc/leo/prebuilt/keylayout/htcleo-keypad.kcm.bin:system/usr/keychars/htcleo-keypad.kcm.bin \
+	device/htc/leo/prebuilt/keylayout/htcleo-keypad.kcm:system/usr/keychars/htcleo-keypad.kcm \
 	device/htc/leo/prebuilt/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl
 
 # Touchscreen
