@@ -100,7 +100,8 @@ PRODUCT_COPY_FILES += \
 
 # This file is used to install the enable RMNET and corresponding modules which dont get activated by normal module script, mount cache so that downloads work correctly
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/init.d/01modules:system/etc/init.d/01modules
+	device/htc/leo/prebuilt/init.d/01modules:system/etc/init.d/01modules \
+	device/htc/leo/prebuilt/init.d/97ppp:system/etc/init.d/97ppp
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -170,7 +171,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapgrowthlimit=48m \
 	dalvik.vm.heapstartsize=5m \
 	dalvik.vm.dexopt-data-only=1 \
-	windowsmgr.max_events_per_sec=120
+	windowsmgr.max_events_per_sec=180
 	
 # HardwareRenderer properties
 # dirty_regions: "false" to disable partial invalidates, override if enabletr=true
@@ -211,6 +212,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/ppp/ip-up:system/etc/ppp/ip-up \
 	device/htc/leo/prebuilt/ppp/ip-down:system/etc/ppp/ip-down \
+	device/htc/leo/prebuilt/ppp/ppp:system/ppp \
 	device/htc/leo/prebuilt/ppp/options:system/etc/ppp/options
 
 # Kernel Modules

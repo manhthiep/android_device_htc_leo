@@ -125,12 +125,6 @@ $SED -i \
 	-e '/ro\.build\.type/s/eng/user/' \
 	$REPACK/ota/system/build.prop
 
-# Include device specific script
-if [ "$TARGET_PRODUCT" = "cm_leo" ]; then
-        . $ANDROID_BUILD_TOP/device/htc/leo/releasetools/squisher.sh
-fi
-
-
 # Delete unnecessary binaries
 ( cd $REPACK/ota/system/bin; echo $DELETE_BINS | xargs rm -f; )
 

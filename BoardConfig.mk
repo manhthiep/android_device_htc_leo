@@ -103,7 +103,7 @@ COMMON_GLOBAL_CFLAGS    += -DEGL_TRACE
 BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_HARDWARE := true
 
-#TARGET_CUSTOM_RELEASETOOL := device/htc/leo/releasetools/squisher
+TARGET_CUSTOM_RELEASETOOL := device/htc/leo/releasetools/squisher
 
 # # cat /proc/mtd
 # dev:    size   erasesize  name
