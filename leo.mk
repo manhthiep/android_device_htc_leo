@@ -36,8 +36,6 @@ PRODUCT_LOCALES := en
 # General properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240 \
-    rild.libpath=/system/lib/libhtc_ril_wrapper.so \
-	rild.libargs=-d /dev/smd0 \
 	ro.ril.ecc.HTC-ELL=92,93,94 \
     ro.ril.ecc.HTC-WWE=999 \
     ro.ril.enable.a52.HTC-ITA=1 \
@@ -122,10 +120,10 @@ PRODUCT_PACKAGES += \
     gralloc.qsd8k \
     hwcomposer.default \
     hwcomposer.qsd8k \
-	libgenlock \
-	libmemalloc \
-	libtilerenderer \
-	libQcomUI 
+    libgenlock \
+    libmemalloc \
+    libtilerenderer \
+    libQcomUI 
 
 # Omx
 PRODUCT_PACKAGES += \
@@ -143,11 +141,11 @@ PRODUCT_PACKAGES += \
 	
 # Omx cli test apps
 PRODUCT_PACKAGES += \
-	libmm-omxcore \
-	mm-vdec-omx-test \
-	liblasic \
-	ast-mm-vdec-omx-test \
-	mm-venc-omx-test
+    libmm-omxcore \
+    mm-vdec-omx-test \
+    liblasic \
+    ast-mm-vdec-omx-test \
+    mm-venc-omx-test
 
 PRODUCT_PACKAGES += \
     Stk \
