@@ -70,7 +70,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.disable.power.collapse=0 \
 	wifi.supplicant_scan_interval=180 
 
-# Improve touch responseiveness
+# Improve touch responsiveness
 PRODUCT_PROPERTY_OVERRIDES += \
 	Debug.performance.tuning=1 \
 	Video.accelerate.hw=1 
@@ -174,6 +174,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapstartsize=5m \
 	dalvik.vm.dexopt-data-only=1 \
 	windowsmgr.max_events_per_sec=180
+
+# Force launcher/apps into memory
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.HOME_APP_ADJ=1 \
+	ro.PERCEPTIBLE_APP_ADJ=0 
 	
 # HardwareRenderer properties
 # dirty_regions: "false" to disable partial invalidates, override if enabletr=true
