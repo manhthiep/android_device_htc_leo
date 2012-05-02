@@ -141,6 +141,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	camera.qsd8k \
 	leo-reference-ril \
+	libgps \
 	libhtc_ril_wrapper
 	
 # Omx cli test apps
