@@ -35,7 +35,7 @@ PRODUCT_LOCALES := en
 
 # General properties
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.sf.lcd_density=240 \
+	ro.sf.lcd_density=160 \
 	ro.ril.ecc.HTC-ELL=92,93,94 \
 	ro.ril.ecc.HTC-WWE=999 \
 	ro.ril.enable.a52.HTC-ITA=1 \
@@ -161,8 +161,8 @@ PRODUCT_PACKAGES += \
 ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
 	
 # leo uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	debug.sf.hw=1 \
