@@ -1,4 +1,4 @@
 <resources>
     <!-- Height of the horizontal navigation bar on devices that require it -->
-    <dimen name="navigation_bar_height">42dp</dimen>
+    <dimen name="navigation_bar_height">38dp</dimen>
 </resources>

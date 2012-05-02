@@ -83,8 +83,21 @@ cd $REPACK/ota
 printf "Unpacking $OTAPACKAGE..."
 unzip $QUIET $OTAPACKAGE
 
-# Apps removal script
-. $ANDROID_BUILD_TOP/device/htc/leo/releasetools/apps.sh
+# leo apps removal
+printf "Leo has limited diskspace!"
+printf "Removing unwanted stuff..."
+
+rm -rf $REPACK/ota/system/media/video
+
+cd $REPACK/ota/system/app
+
+rm VideoEditor.apk
+rm RomManager.apk
+rm LiveWallpapers.apk
+rm Galaxy4.apk
+rm HoloSpiralWallpaper.apk
+rm MagicSmokeWallpapers.apk
+rm PhaseBeam.apk
 
 echo
 cd $REPACK/ota/system/framework

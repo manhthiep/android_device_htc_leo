@@ -11,18 +11,6 @@ on early-init
 on fs
     mount yaffs2 mtd@system /system remount
 
-    # cache hacks
-    mount yaffs2 mtd@cache /mnt/cache nosuid nodev remount
-    mount yaffs2 mtd@userdata /data nosuid nodev
-
-    rmdir /cache
-
-    mkdir /data/cache 0771 system cache
-    symlink /data/cache /cache
-
-    mkdir /mnt/cache/recovery 0770 system cache
-    symlink /mnt/cache/recovery /cache/recovery
-
 on post-fs-data
 
     mount rootfs rootfs / remount
