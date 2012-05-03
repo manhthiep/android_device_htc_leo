@@ -163,8 +163,8 @@ PRODUCT_PACKAGES += \
 ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
 	
 # leo uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal mdpi
-PRODUCT_AAPT_PREF_CONFIG := mdpi
+PRODUCT_AAPT_CONFIG := normal hdpi mdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi mdpi
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	debug.sf.hw=1 \

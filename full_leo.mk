@@ -25,7 +25,7 @@ $(call inherit-product, device/htc/leo/leo_eu.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Leo uses high-density artwork where available
-PRODUCT_LOCALES += mdpi
+PRODUCT_LOCALES += hdpi mdpi
 
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := full_leo
