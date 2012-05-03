@@ -35,7 +35,7 @@ PRODUCT_LOCALES := en
 
 # General properties
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.sf.lcd_density=160 \
+	ro.sf.lcd_density=240 \
 	ro.ril.ecc.HTC-ELL=92,93,94 \
 	ro.ril.ecc.HTC-WWE=999 \
 	ro.ril.enable.a52.HTC-ITA=1 \
