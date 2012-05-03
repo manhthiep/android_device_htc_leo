@@ -100,7 +100,6 @@ rm HoloSpiralWallpaper.apk
 rm MagicSmokeWallpapers.apk
 rm PhaseBeam.apk
 rm VisualizationWallpapers.apk
-rm PicoTts.apk
 
 echo
 cd $REPACK/ota/system/framework
