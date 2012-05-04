@@ -53,7 +53,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.enable.managed.roaming=1 \
 	ro.ril.oem.nosim.ecclist=911,112,999,000,08,118,120,122,110,119,995 \
 	ro.ril.emc.mode=2 \
-	wifi.interface=eth0 \
 	mobiledata.interfaces=rmnet0,rmnet1,rmnet2,ppp0
 	
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -67,8 +66,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # 3 => /* GSM/WCDMA (auto mode, according to PRL) */
 PRODUCT_PROPERTY_OVERRIDES += ro.telephony.default_network=0
 	
-# Reduce wifi scan. Better batery life
 PRODUCT_PROPERTY_OVERRIDES += \
+	wifi.interface=wlan0 \
 	ro.ril.disable.power.collapse=0 \
 	wifi.supplicant_scan_interval=180 
 
