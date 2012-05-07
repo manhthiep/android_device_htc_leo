@@ -48,7 +48,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.hsupa.category=5 \
 	ro.ril.hsxpa=2 \
 	ro.ril.enable.prl.recognition=1 \
-	ro.telephony.ril.v3=1 \
+	ro.telephony.ril.v3=signalstrength \
 	ro.ril.def.agps.mode=2 \
 	ro.ril.enable.managed.roaming=1 \
 	ro.ril.oem.nosim.ecclist=911,112,999,000,08,118,120,122,110,119,995 \
@@ -174,7 +174,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapgrowthlimit=48m \
 	dalvik.vm.heapstartsize=5m \
 	dalvik.vm.dexopt-data-only=1 \
-	windowsmgr.max_events_per_sec=180
+	dalvik.vm.verify-bytecode=false \
+	windowsmgr.max_events_per_sec=120
 
 # Force launcher/apps into memory
 PRODUCT_PROPERTY_OVERRIDES += \
