@@ -69,17 +69,17 @@ PRODUCT_PROPERTY_OVERRIDES += ro.telephony.default_network=0
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0 \
 	ro.ril.disable.power.collapse=0 \
-	wifi.supplicant_scan_interval=180 
+	wifi.supplicant_scan_interval=60
 
 # Improve touch responsiveness
 PRODUCT_PROPERTY_OVERRIDES += \
 	Debug.performance.tuning=1 \
-	Video.accelerate.hw=1 
+	Video.accelerate.hw=1
 
 # Fix black screen after call
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.lge.proximity.delay=10 \
-	mot.proximity.delay=10 
+	mot.proximity.delay=10
 
 PRODUCT_COPY_FILES += \
 	frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -129,7 +129,7 @@ PRODUCT_PACKAGES += \
 	libgenlock \
 	libmemalloc \
 	libtilerenderer \
-	libQcomUI 
+	libQcomUI
 
 # Omx
 PRODUCT_PACKAGES += \
@@ -175,12 +175,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapstartsize=5m \
 	dalvik.vm.dexopt-data-only=1 \
 	dalvik.vm.verify-bytecode=false \
+	dalvik.vm.lockprof.threshold=500 \
 	windowsmgr.max_events_per_sec=120
 
 # Force launcher/apps into memory
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.HOME_APP_ADJ=1 \
-	ro.PERCEPTIBLE_APP_ADJ=0 
+	ro.PERCEPTIBLE_APP_ADJ=0
 	
 # HardwareRenderer properties
 # dirty_regions: "false" to disable partial invalidates, override if enabletr=true
@@ -188,7 +189,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	hwui.render_dirty_regions=false \
 	hwui.disable_vsync=true \
 	hwui.print_config=choice \
-	debug.enabletr=false 
+	debug.enabletr=false
 	
 # Force 2 buffers - gralloc defaults to 3 and we only have 2
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -197,7 +198,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # disable jni check	
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.kernel.android.checkjni=0 \
-	dalvik.vm.checkjni=0 
+	dalvik.vm.checkjni=0
 
 # Set usb type
 PRODUCT_PROPERTY_OVERRIDES += \
