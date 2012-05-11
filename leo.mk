@@ -136,7 +136,7 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
 	libOmxCore \
 	libOmxVdec \
-    libOmxVenc \
+	libOmxVidEnc \
 	libstagefrighthw
 	
 # Omx cli test apps
