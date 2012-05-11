@@ -133,25 +133,25 @@ PRODUCT_PACKAGES += \
 
 # Omx
 PRODUCT_PACKAGES += \
+    libmm-omxcore \
 	libOmxCore \
-	libOmxVenc \
 	libOmxVdec \
+    libOmxVenc \
 	libstagefrighthw
+	
+# Omx cli test apps
+#PRODUCT_PACKAGES += \
+#    liblasic \
+#    mm-vdec-omx-test \
+#    ast-mm-vdec-omx-test \
+#    mm-venc-omx-test
 
 # htcleo misc
 PRODUCT_PACKAGES += \
-	camera.qsd8k \
+    camera.qsd8k \
 	leo-reference-ril \
 	libgps \
 	libhtc_ril_wrapper
-	
-# Omx cli test apps
-PRODUCT_PACKAGES += \
-	libmm-omxcore \
-	mm-vdec-omx-test \
-	liblasic \
-	ast-mm-vdec-omx-test \
-	mm-venc-omx-test
 
 PRODUCT_PACKAGES += \
 	Stk \
