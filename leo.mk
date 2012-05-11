@@ -156,6 +156,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	Stk \
 	Camera \
+	Torch \
 	Launcher2
 	
 # strict mode
