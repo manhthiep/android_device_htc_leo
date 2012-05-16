@@ -9,10 +9,10 @@ on early-init
     symlink /mnt/sdcard /sdcard
 
 on fs
-    mount yaffs2 mtd@system /system remount
+    mount yaffs2 mtd@system /system remount noatime nodiratime
+    mount yaffs2 mtd@userdata /data remount nosuid nodev noatime nodiratime
 
 on post-fs-data
-
     mount rootfs rootfs / remount
 
     mkdir /data/misc/wifi 0770 wifi wifi
