@@ -10,5 +10,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
         ro.goo.version=$(shell date +%s)
 
 # include goo manager
-#PRODUCT_COPY_FILES += \
-#       device/htc/leo/prebuilt/GooManager.apk:system/app/GooManager.apk
+PRODUCT_COPY_FILES += \
+       device/htc/leo/prebuilt/GooManager.apk:system/app/GooManager.apk
