@@ -22,11 +22,11 @@
 # Copy gsmconfig here for now as a workaround
 # GSM APN list
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+     device/htc/leo/prebuilt/apns-conf.xml:system/etc/apns-conf.xml
 
 # GSM SPN overrides list
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml
+     device/htc/leo/prebuilt/spn-conf.xml:system/etc/spn-conf.xml
 
 # The gps config appropriate for this device
 PRODUCT_COPY_FILES += \

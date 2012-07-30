@@ -42,6 +42,9 @@ TARGET_ARCH_VARIANT_FPU := neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_VFP := true
 
+# Bionic optimizations
+TARGET_USE_LINARO_STRING_ROUTINES := true
+
 # FPU compilation flags
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
@@ -55,14 +58,15 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
 WPA_SUPPLICANT_VERSION      := VER_0_8_X
 BOARD_WLAN_DEVICE           := bcm4329
 WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/bcm4329.ko"
-WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcm4329.bin"
-WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcm4329_apsta.bin"
-WIFI_DRIVER_MODULE_ARG      := "iface_name=wlan firmware_path=/vendor/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
+WIFI_DRIVER_FW_PATH_STA     := "/system/vendor/firmware/fw_bcm4329.bin"
+WIFI_DRIVER_FW_PATH_AP      := "/system/vendor/firmware/fw_bcm4329_apsta.bin"
+WIFI_DRIVER_MODULE_ARG      := "iface_name=wlan firmware_path=/system/vendor/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
 WIFI_DRIVER_MODULE_NAME     := "bcm4329"
 
 BOARD_KERNEL_CMDLINE := no_console_suspend=1 wire.search_count=5
 
 BOARD_USES_GENERIC_AUDIO := false
+COMMON_GLOBAL_CFLAGS += -DLEGACY_AUDIO_COMPAT
 
 BOARD_KERNEL_BASE := 0x11800000
 BOARD_KERNEL_NEW_PPPOX := true
@@ -106,7 +110,7 @@ COMMON_GLOBAL_CFLAGS    += -DEGL_TRACE
 BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_HARDWARE := true
 
-TARGET_CUSTOM_RELEASETOOL := device/htc/leo/releasetools/squisher
+#TARGET_CUSTOM_RELEASETOOL := device/htc/leo/releasetools/squisher
 
 # # cat /proc/mtd
 # dev:    size   erasesize  name
@@ -143,10 +147,6 @@ BOARD_USE_OPENSSL_ENGINE := true
 # Hacks
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
 BOARD_USE_LEGACY_TRACKPAD := true
+BOARD_USE_LEGACY_TOUCHSCREEN := true
 TARGET_FORCE_CPU_UPLOAD := true
-
-
-
-
-
 

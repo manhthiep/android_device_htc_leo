@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Google Apps
+#$(call inherit-product, device/htc/leo/gapps.mk)
+
 PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/init.htcleo.rc:root/init.htcleo.rc \
 	device/htc/leo/prebuilt/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
@@ -31,7 +34,6 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 $(call inherit-product-if-exists, vendor/htc/leo/leo-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
-PRODUCT_LOCALES := en
 
 # General properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -102,8 +104,17 @@ PRODUCT_COPY_FILES += \
 # This file is used to install the enable RMNET and corresponding modules which dont get activated by normal module script, mount cache so that downloads work correctly
 PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/init.d/01modules:system/etc/init.d/01modules \
+	device/htc/leo/prebuilt/init.d/02usb_tethering:system/etc/init.d/02usb_tethering \
 	device/htc/leo/prebuilt/init.d/10mic_level:system/etc/init.d/10mic_level \
 	device/htc/leo/prebuilt/init.d/97ppp:system/etc/init.d/97ppp
+
+PRODUCT_COPY_FILES += \
+	device/htc/leo/prebuilt/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
+	device/htc/leo/prebuilt/modules/cifs.ko:system/lib/modules/cifs.ko \
+	device/htc/leo/prebuilt/modules/fuse.ko:system/lib/modules/fuse.ko \
+	device/htc/leo/prebuilt/modules/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
+	device/htc/leo/prebuilt/modules/msm_rmnet.ko:system/lib/modules/msm_rmnet.ko \
+	device/htc/leo/prebuilt/modules/tun.ko:system/lib/modules/tun.ko \
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -137,13 +148,6 @@ PRODUCT_PACKAGES += \
 	libOmxVdec \
 	libOmxVidEnc \
 	libstagefrighthw
-	
-# Omx cli test apps
-#PRODUCT_PACKAGES += \
-#    liblasic \
-#    mm-vdec-omx-test \
-#    ast-mm-vdec-omx-test \
-#    mm-venc-omx-test
 
 # htcleo misc
 PRODUCT_PACKAGES += \
@@ -156,7 +160,9 @@ PRODUCT_PACKAGES += \
 	Stk \
 	Camera \
 	Torch \
-	Launcher2
+	librs_jni \
+	Launcher2 \
+	Mms
 	
 # strict mode
 ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
@@ -225,35 +231,20 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/ppp/ppp:system/ppp \
 	device/htc/leo/prebuilt/ppp/options:system/etc/ppp/options
 
-# Kernel Modules
-PRODUCT_COPY_FILES += $(shell \
-	find device/htc/leo/prebuilt/modules -name '*.ko' \
-	| sed -r 's/^\/?(.*\/)([^/ ]+)$$/\1\2:system\/lib\/modules\/\2/' \
-	| tr '\n' ' ')
-
-# kernel
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/kernel:kernel
-
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/htc/leo/prebuilt/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
+	device/htc/leo/prebuilt/sysctl.conf:system/etc/sysctl.conf
 
 # The gps config appropriate for this device
 PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/gps.conf:system/etc/gps.conf
 
-PRODUCT_COPY_FILES += \
-	$(LOCAL_KERNEL):kernel
-
-
 # stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)
 
-# goo.im stuff
-$(call inherit-product, device/htc/leo/goo.mk)
-
+PRODUCT_LOCALES := en
 PRODUCT_NAME := htc_leo
 PRODUCT_DEVICE := leo
+PRODUCT_MODEL := HTC HD2
+PRODUCT_MANUFACTURER := HTC
+PRODUCT_BRAND := htc
+PRODUCT_CODENAME := leo
