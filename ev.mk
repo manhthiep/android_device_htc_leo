@@ -1,10 +1,10 @@
 # GSM APN list
 PRODUCT_COPY_FILES += \
-    device/htc/leo/ev/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+    vendor/ev/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # GSM SPN overrides list
 PRODUCT_COPY_FILES += \
-    device/htc/leo/ev/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml
+    vendor/ev/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml
 
 # SIM Toolkit
 PRODUCT_PACKAGES += \
@@ -55,12 +55,11 @@ PRODUCT_PACKAGES += \
 
 # Utilize init.d scripts
 PRODUCT_COPY_FILES += \
-    device/htc/leo/ev/prebuilt/common/bin/sysinit:system/bin/sysinit \
-    device/htc/leo/ev/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    device/htc/leo/ev/prebuilt/common/etc/init.d/01sysctl:system/etc/init.d/01sysctl \
-
-#    device/htc/leo/ev/prebuilt/common/etc/init.d/05mountext:system/etc/init.d/05mountext \
-#    device/htc/leo/ev/prebuilt/common/etc/init.d/06handleswap:system/etc/init.d/06handleswap
+    vendor/ev/prebuilt/common/bin/sysinit:system/bin/sysinit \
+    vendor/ev/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/ev/prebuilt/common/etc/init.d/01sysctl:system/etc/init.d/01sysctl \
+    vendor/ev/prebuilt/common/etc/init.d/05mountext:system/etc/init.d/05mountext \
+    vendor/ev/prebuilt/common/etc/init.d/06handleswap:system/etc/init.d/06handleswap
 
 # Configs
 PRODUCT_COPY_FILES += \
@@ -72,20 +71,20 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/prebuilt/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh
 
 # Apps2sd files
-#PRODUCT_COPY_FILES += \
-#    device/htc/leo/ev/prebuilt/common/bin/a2sd:system/bin/a2sd \
-#    device/htc/leo/ev/prebuilt/common/bin/fix_permissions:system/bin/fix_permissions \
-#    device/htc/leo/ev/prebuilt/common/xbin/zipalign:system/xbin/zipalign \
-#    device/htc/leo/ev/prebuilt/common/etc/init.d/10apps2sd-redux:system/etc/init.d/10apps2sd
+PRODUCT_COPY_FILES += \
+    vendor/ev/prebuilt/common/bin/a2sd:system/bin/a2sd \
+    vendor/ev/prebuilt/common/bin/fix_permissions:system/bin/fix_permissions \
+    vendor/ev/prebuilt/common/xbin/zipalign:system/xbin/zipalign \
+    vendor/ev/prebuilt/common/etc/init.d/10apps2sd-redux:system/etc/init.d/10apps2sd
 
 # Prebuilt commandline tools
 PRODUCT_COPY_FILES += \
-    device/htc/leo/ev/prebuilt/common/xbin/dropbear-keygen:system/xbin/dropbear-keygen \
-    device/htc/leo/ev/prebuilt/common/xbin/powertop:system/xbin/powertop \
-    device/htc/leo/ev/prebuilt/common/etc/profile:system/etc/profile
+    vendor/ev/prebuilt/common/xbin/dropbear-keygen:system/xbin/dropbear-keygen \
+    vendor/ev/prebuilt/common/xbin/powertop:system/xbin/powertop \
+    vendor/ev/prebuilt/common/etc/profile:system/etc/profile
 
-#PRODUCT_PACKAGE_OVERLAYS += device/htc/leo/ev/overlay/wallpapers
-#PRODUCT_PACKAGE_OVERLAYS += device/htc/leo/ev/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/ev/overlay/wallpapers
+PRODUCT_PACKAGE_OVERLAYS += vendor/ev/overlay/common
 
 # Disable strict mode
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -94,7 +93,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 # Bring in all audio files
 include frameworks/base/data/sounds/AllAudio.mk
 
-#PRODUCT_PACKAGE_OVERLAYS += device/htc/leo/ev/overlay/full
+PRODUCT_PACKAGE_OVERLAYS += vendor/ev/overlay/full
 
 PRODUCT_PACKAGES += \
     VideoEditor \
@@ -116,7 +115,7 @@ PRODUCT_PACKAGES += \
     com.tmobile.themes
 
 PRODUCT_COPY_FILES += \
-    device/htc/leo/ev/prebuilt/common/etc/permissions/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml
+    vendor/ev/prebuilt/common/etc/permissions/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml
 
 # Theme packages to include
 PRODUCT_PACKAGES += \
