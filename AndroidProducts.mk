@@ -18,4 +18,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp.mk
+    $(LOCAL_DIR)/b2g.mk
