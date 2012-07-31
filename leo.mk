@@ -33,7 +33,7 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/leo/leo-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
+#DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
 
 # General properties
 PRODUCT_PROPERTY_OVERRIDES += \

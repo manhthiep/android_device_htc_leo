@@ -5,11 +5,11 @@ LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_KERNEL):kernel
+    $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_KERNEL):boot/zImage \
-	device/htc/leo/prebuilt/initrd.gz:boot/initrd.gz
+    $(LOCAL_KERNEL):boot/zImage \
+    device/htc/leo/prebuilt/initrd.gz:boot/initrd.gz
 
 # Inherit AOSP device configuration for leo.
 $(call inherit-product, device/htc/leo/full_leo.mk)
@@ -66,26 +66,19 @@ PRODUCT_PACKAGES += \
     PhaseBeam
 
 # Stuffs from CM
-# Don't export PS1 in /system/etc/mkshrc.
-PRODUCT_COPY_FILES += \
-    device/htc/leo/cm/prebuilt/common/etc/mkshrc:system/etc/mkshrc
-
-# init.d support
-PRODUCT_COPY_FILES += \
-    device/htc/leo/cm/prebuilt/common/bin/sysinit:system/bin/sysinit
-
-# Compcache/Zram support
-PRODUCT_COPY_FILES += \
-    device/htc/leo/cm/prebuilt/common/etc/init.local.rc:system/etc/init.local.rc \
-    device/htc/leo/cm/prebuilt/common/bin/compcache:system/bin/compcache \
-    device/htc/leo/cm/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
-
-# Extra tools in CM
 PRODUCT_PACKAGES += \
     openvpn \
     e2fsck \
     mke2fs \
     tune2fs
+
+# Don't export PS1 in /system/etc/mkshrc.
+PRODUCT_COPY_FILES += \
+    device/htc/leo/prebuilt/mkshrc:system/etc/mkshrc
+
+# init.d support
+PRODUCT_COPY_FILES += \
+    device/htc/leo/prebuilt/sysinit:system/bin/sysinit
 
 PRODUCT_PACKAGE_OVERLAYS += device/htc/leo/prebuilt/dictionaries
 
