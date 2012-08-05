@@ -36,7 +36,7 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/leo/leo-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
+#DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
 
 # General properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -253,17 +253,11 @@ PRODUCT_PACKAGES += \
 # Stuffs from CM
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
-    device/htc/leo/cm/prebuilt/common/etc/mkshrc:system/etc/mkshrc
+    device/htc/leo/prebuilt/mkshrc:system/etc/mkshrc
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    device/htc/leo/cm/prebuilt/common/bin/sysinit:system/bin/sysinit
-
-# Compcache/Zram support
-PRODUCT_COPY_FILES += \
-    device/htc/leo/cm/prebuilt/common/etc/init.local.rc:system/etc/init.local.rc \
-    device/htc/leo/cm/prebuilt/common/bin/compcache:system/bin/compcache \
-    device/htc/leo/cm/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
+    device/htc/leo/prebuilt/sysinit:system/bin/sysinit
 
 
 ## Device identifier. This must come after all inclusions

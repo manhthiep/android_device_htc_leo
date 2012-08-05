@@ -68,17 +68,11 @@ PRODUCT_PACKAGES += \
 # Stuffs from CM
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
-    device/htc/leo/cm/prebuilt/common/etc/mkshrc:system/etc/mkshrc
+    device/htc/leo/prebuilt/mkshrc:system/etc/mkshrc
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    device/htc/leo/cm/prebuilt/common/bin/sysinit:system/bin/sysinit
-
-# Compcache/Zram support
-PRODUCT_COPY_FILES += \
-    device/htc/leo/cm/prebuilt/common/etc/init.local.rc:system/etc/init.local.rc \
-    device/htc/leo/cm/prebuilt/common/bin/compcache:system/bin/compcache \
-    device/htc/leo/cm/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
+    device/htc/leo/prebuilt/sysinit:system/bin/sysinit
 
 # Extra tools in CM
 PRODUCT_PACKAGES += \
