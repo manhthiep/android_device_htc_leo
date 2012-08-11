@@ -14,26 +14,23 @@
 # limitations under the License.
 #
 
-# Google Apps
-#$(call inherit-product, device/htc/leo/gapps.mk)
-
 PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/init.htcleo.rc:root/init.htcleo.rc \
 	device/htc/leo/prebuilt/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
 	device/htc/leo/prebuilt/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
-	device/htc/leo/prebuilt/logo.rle:root/logo.rle \
+	device/htc/leo/prebuilt/logo.rle:root/logo.rle
 
 # Add the postrecoveryboot.sh so that the recovery.fstab can be changed
 PRODUCT_COPY_FILES += \
-    device/htc/leo/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
+        device/htc/leo/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 ## (2) Also get non-open-source GSM-specific aspects if available
-$(call inherit-product-if-exists, vendor/htc/leo/leo-vendor.mk)
+$(call inherit-product-if-exists, device/htc/leo/leo-vendor.mk)
 
-#DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
+DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
 
 # General properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -143,7 +140,7 @@ PRODUCT_PACKAGES += \
 
 # Omx
 PRODUCT_PACKAGES += \
-    libmm-omxcore \
+        libmm-omxcore \
 	libOmxCore \
 	libOmxVdec \
 	libOmxVidEnc \
@@ -151,7 +148,7 @@ PRODUCT_PACKAGES += \
 
 # htcleo misc
 PRODUCT_PACKAGES += \
-    camera.qsd8k \
+        camera.qsd8k \
 	leo-reference-ril \
 	libgps \
 	libhtc_ril_wrapper
@@ -165,7 +162,8 @@ PRODUCT_PACKAGES += \
 	Mms
 	
 # strict mode
-ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+	persist.sys.strictmode.disable=1
 	
 # leo uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi mdpi
@@ -210,6 +208,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mass_storage \
 	persist.service.adb.enable=1
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+	persist.sys.usb.config=mass_storage \
+	persist.service.adb.enable=1
 	
 PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/vold.fstab:system/etc/vold.fstab
@@ -239,7 +241,7 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/gps.conf:system/etc/gps.conf
 
 # stuff common to all HTC phones
-$(call inherit-product, device/htc/common/common.mk)
+$(call inherit-product-if-exists, device/htc/common/common.mk)
 
 PRODUCT_LOCALES := en
 PRODUCT_NAME := htc_leo

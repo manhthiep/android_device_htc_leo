@@ -26,7 +26,7 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
--include vendor/htc/leo/BoardConfigVendor.mk
+-include device/htc/leo/BoardConfigVendor.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := htcleo
 TARGET_NO_BOOTLOADER := true
