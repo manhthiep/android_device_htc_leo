@@ -23,9 +23,9 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):boot/zImage \
-    device/htc/leo/prebuilt/initrd.gz:boot/initrd.gz
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_KERNEL):boot/zImage \
+#    device/htc/leo/prebuilt/initrd.gz:boot/initrd.gz
 
 # Inherit AOSP device configuration for leo.
 $(call inherit-product, device/htc/leo/full_leo.mk)
@@ -47,15 +47,15 @@ $(call inherit-product-if-exists, device/htc/leo/app.mk)
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
-    frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 # GSM APN list
 PRODUCT_COPY_FILES += \
-    device/htc/leo/prebuilt/apns-conf.xml:system/etc/apns-conf.xml
+    device/htc/leo/prebuilt/system/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # GSM SPN overrides list
 PRODUCT_COPY_FILES += \
-    device/htc/leo/prebuilt/spn-conf.xml:system/etc/spn-conf.xml
+    device/htc/leo/prebuilt/system/etc/spn-conf.xml:system/etc/spn-conf.xml
 
 # Required packages
 PRODUCT_PACKAGES += \
@@ -66,7 +66,7 @@ PRODUCT_PACKAGES += \
     su
 
 # Optional packages
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     VideoEditor \
     VoiceDialer \
     SoundRecorder \
@@ -89,13 +89,13 @@ PRODUCT_PACKAGES += \
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
-    device/htc/leo/prebuilt/mkshrc:system/etc/mkshrc
+    device/htc/leo/prebuilt/system/etc/mkshrc:system/etc/mkshrc
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    device/htc/leo/prebuilt/sysinit:system/bin/sysinit
+    device/htc/leo/prebuilt/system/bin/sysinit:system/bin/sysinit
 
-PRODUCT_PACKAGE_OVERLAYS += device/htc/leo/prebuilt/dictionaries
+#PRODUCT_PACKAGE_OVERLAYS += device/htc/leo/prebuilt/dictionaries
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_MODEL := HTC HD2 (Leo)

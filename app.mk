@@ -15,5 +15,5 @@
 #
 
 PRODUCT_COPY_FILES += \
-	$(shell find device/htc/leo/prebuilt/app -name '*.apk' \
+	$(shell find device/htc/leo/prebuilt/system/app -name '*.apk' \
 	-printf '%p:data/app/%f ')

@@ -80,14 +80,14 @@ BOARD_VENDOR_QCOM_AMSS_VERSION := 3200
 
 BOARD_VENDOR_USE_AKMD := akm8973
 
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+#BOARD_HAVE_FM_RADIO := true
+#BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
 # RIL
 BOARD_USE_NEW_LIBRIL_HTC := true
 
 # Hardware rendering
-BOARD_EGL_CFG := device/htc/leo/prebuilt/egl.cfg
+BOARD_EGL_CFG := device/htc/leo/proprietary/system/lib/egl/egl.cfg
 USE_OPENGL_RENDERER     := true
 TARGET_USES_GENLOCK     := true
 TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
@@ -127,8 +127,11 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 0x0de00000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0c800000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
+
+#BUILD_KERNEL := true
+#TARGET_KERNEL_SOURCE := kernel/htc/leo
+#TARGET_KERNEL_CONFIG := htcleo_defconfig
 TARGET_PREBUILT_KERNEL := device/htc/leo/prebuilt/kernel
 
 # to enable the GPS HAL
@@ -149,4 +152,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/f
 BOARD_USE_LEGACY_TRACKPAD := true
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 TARGET_FORCE_CPU_UPLOAD := true
+
+TARGET_NO_HW_VSYNC := true
+TARGET_USES_ION := false
 

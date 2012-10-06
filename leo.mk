@@ -15,14 +15,14 @@
 #
 
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/init.htcleo.rc:root/init.htcleo.rc \
-	device/htc/leo/prebuilt/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
-	device/htc/leo/prebuilt/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
-	device/htc/leo/prebuilt/logo.rle:root/logo.rle
+	device/htc/leo/prebuilt/root/init.htcleo.rc:root/init.htcleo.rc \
+	device/htc/leo/prebuilt/root/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
+	device/htc/leo/prebuilt/root/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
+	device/htc/leo/prebuilt/root/logo.rle:root/logo.rle
 
 # Add the postrecoveryboot.sh so that the recovery.fstab can be changed
 PRODUCT_COPY_FILES += \
-        device/htc/leo/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
+    device/htc/leo/prebuilt/recovery/root/sbin/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -30,7 +30,7 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, device/htc/leo/leo-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
+#DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
 
 # General properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -56,7 +56,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	
 PRODUCT_PROPERTY_OVERRIDES += \
 	media.a1026.nsForVoiceRec=0 \
-	media.a1026.enableA1026=1 \
+	media.a1026.enableA1026=0 \
 	ro.media.dec.jpeg.memcap=20000000 \
 	ro.opengles.version=131072
 	
@@ -81,37 +81,40 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	mot.proximity.delay=10
 
 PRODUCT_COPY_FILES += \
-	frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-	frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-	frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-	frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-	frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-	frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-	frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-	frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
-	frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-	frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-	frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml
+	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+	frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+	frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+	frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+	frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+	frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml
 
 # media config xml file
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/media_profiles.xml:system/etc/media_profiles.xml
-
-# This file is used to install the enable RMNET and corresponding modules which dont get activated by normal module script, mount cache so that downloads work correctly
-PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/init.d/01modules:system/etc/init.d/01modules \
-	device/htc/leo/prebuilt/init.d/02usb_tethering:system/etc/init.d/02usb_tethering \
-	device/htc/leo/prebuilt/init.d/10mic_level:system/etc/init.d/10mic_level \
-	device/htc/leo/prebuilt/init.d/97ppp:system/etc/init.d/97ppp
+	device/htc/leo/prebuilt/system/etc/media_profiles.xml:system/etc/media_profiles.xml
 
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
-	device/htc/leo/prebuilt/modules/cifs.ko:system/lib/modules/cifs.ko \
-	device/htc/leo/prebuilt/modules/fuse.ko:system/lib/modules/fuse.ko \
-	device/htc/leo/prebuilt/modules/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
-	device/htc/leo/prebuilt/modules/msm_rmnet.ko:system/lib/modules/msm_rmnet.ko \
-	device/htc/leo/prebuilt/modules/tun.ko:system/lib/modules/tun.ko \
+    device/htc/leo/prebuilt/system/etc/init.d/00anr:system/etc/init.d/00anr \
+	device/htc/leo/prebuilt/system/etc/init.d/00cpufreq:system/etc/init.d/00cpufreq \
+	device/htc/leo/prebuilt/system/etc/init.d/01modules:system/etc/init.d/01modules \
+	device/htc/leo/prebuilt/system/etc/init.d/01sysctl:system/etc/init.d/01sysctl
+
+PRODUCT_COPY_FILES += \
+	device/htc/leo/prebuilt/system/etc/init.d/97ppp:system/etc/init.d/97ppp
+
+PRODUCT_COPY_FILES += \
+	device/htc/leo/prebuilt/system/lib/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
+	device/htc/leo/prebuilt/system/lib/modules/cifs.ko:system/lib/modules/cifs.ko \
+	device/htc/leo/prebuilt/system/lib/modules/fuse.ko:system/lib/modules/fuse.ko \
+	device/htc/leo/prebuilt/system/lib/modules/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
+	device/htc/leo/prebuilt/system/lib/modules/msm_rmnet.ko:system/lib/modules/msm_rmnet.ko \
+	device/htc/leo/prebuilt/system/lib/modules/tun.ko:system/lib/modules/tun.ko \
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -140,18 +143,18 @@ PRODUCT_PACKAGES += \
 
 # Omx
 PRODUCT_PACKAGES += \
-        libmm-omxcore \
-	libOmxCore \
-	libOmxVdec \
-	libOmxVidEnc \
-	libstagefrighthw
+    libmm-omxcore \
+    libOmxCore \
+    libOmxVdec \
+    libOmxVidEnc \
+    libstagefrighthw
 
 # htcleo misc
 PRODUCT_PACKAGES += \
-        camera.qsd8k \
-	leo-reference-ril \
-	libgps \
-	libhtc_ril_wrapper
+    camera.qsd8k \
+    leo-reference-ril \
+    libgps \
+    libhtc_ril_wrapper
 
 PRODUCT_PACKAGES += \
 	Stk \
@@ -159,7 +162,7 @@ PRODUCT_PACKAGES += \
 	Torch \
 	librs_jni \
 	Launcher2 \
-	Mms
+	Mms 
 	
 # strict mode
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -214,31 +217,34 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.service.adb.enable=1
 	
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/vold.fstab:system/etc/vold.fstab
+	device/htc/leo/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/keylayout/htcleo-keypad.kl:system/usr/keylayout/htcleo-keypad.kl \
-	device/htc/leo/prebuilt/keylayout/htcleo-keypad.kcm:system/usr/keychars/htcleo-keypad.kcm \
-	device/htc/leo/prebuilt/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl
+	device/htc/leo/prebuilt/system/usr/keylayout/htcleo-keypad.kl:system/usr/keylayout/htcleo-keypad.kl \
+	device/htc/leo/prebuilt/system/usr/keylayout/htcleo-keypad.kcm:system/usr/keychars/htcleo-keypad.kcm \
+	device/htc/leo/prebuilt/system/usr/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/htcleo-touchscreen.idc:system/usr/idc/htcleo-touchscreen.idc
+	device/htc/leo/prebuilt/system/usr/idc/htcleo-touchscreen.idc:system/usr/idc/htcleo-touchscreen.idc
 
 # PPP files
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/ppp/ip-up:system/etc/ppp/ip-up \
-	device/htc/leo/prebuilt/ppp/ip-down:system/etc/ppp/ip-down \
-	device/htc/leo/prebuilt/ppp/ppp:system/ppp \
-	device/htc/leo/prebuilt/ppp/options:system/etc/ppp/options
+	device/htc/leo/prebuilt/system/etc/ppp/ip-up:system/etc/ppp/ip-up \
+	device/htc/leo/prebuilt/system/etc/ppp/ip-down:system/etc/ppp/ip-down \
+	device/htc/leo/prebuilt/system/ppp:system/ppp \
+	device/htc/leo/prebuilt/system/etc/ppp/options:system/etc/ppp/options
 
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/sysctl.conf:system/etc/sysctl.conf
+	device/htc/leo/prebuilt/system/etc/sysctl.conf:system/etc/sysctl.conf
 
 # The gps config appropriate for this device
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/gps.conf:system/etc/gps.conf
+	device/htc/leo/prebuilt/system/etc/gps.conf:system/etc/gps.conf
+
+# Common qsd8k stuff
+$(call inherit-product, device/htc/qsd8k-common/qsd8k.mk)
 
 # stuff common to all HTC phones
 $(call inherit-product-if-exists, device/htc/common/common.mk)
